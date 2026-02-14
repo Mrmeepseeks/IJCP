@@ -43,44 +43,25 @@ window.addEventListener('scroll', () => {
 });
 
 
-// ===== MANEJO DE FORMULARIO DE INSCRIPCIÓN =====
+// ===== MANEJO DE FORMULARIOS =====
+// Los formularios ahora usan FormSubmit, por lo que se envían directamente
+// El código anterior de preventDefault ha sido removido para permitir el envío
+
+// Opcional: Puedes agregar validación adicional aquí si lo necesitas
 const formInscripcion = document.getElementById('formInscripcion');
+const formContacto = document.getElementById('formContacto');
 
 if (formInscripcion) {
   formInscripcion.addEventListener('submit', function(e) {
-    e.preventDefault(); // Evita que la página se recargue
-    
-    // Obtener los datos del formulario
-    const formData = new FormData(this);
-    const datos = Object.fromEntries(formData);
-    
-    // Por ahora solo mostramos un mensaje
-    // Más adelante conectaremos esto a un backend real
-    console.log('Datos de inscripción:', datos);
-    
-    alert('¡Gracias por tu solicitud! 🎉\n\nEn un ambiente real, estos datos se enviarían al servidor.\n\nPor ahora solo es una demostración.');
-    
-    // Limpiar el formulario
-    this.reset();
+    // Aquí puedes agregar validaciones personalizadas antes de enviar
+    // Por ejemplo, verificar que el teléfono tenga el formato correcto
+    console.log('Formulario de inscripción enviándose...');
   });
 }
 
-
-// ===== MANEJO DE FORMULARIO DE CONTACTO =====
-const formContacto = document.getElementById('formContacto');
-
 if (formContacto) {
   formContacto.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(this);
-    const datos = Object.fromEntries(formData);
-    
-    console.log('Mensaje de contacto:', datos);
-    
-    alert('¡Mensaje enviado! 📧\n\nEn un ambiente real, este mensaje llegaría al correo del colegio.\n\nPor ahora solo es una demostración.');
-    
-    this.reset();
+    console.log('Formulario de contacto enviándose...');
   });
 }
 
